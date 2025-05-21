@@ -26,7 +26,6 @@ class Waffle:
         return unused_letters
             
     def pprint(self):
-        print()
         def pprint_line_range(x,odd):
             d_colors = {
             "g" : "green",
@@ -113,7 +112,9 @@ class Waffle:
             
     def check(self, waffle):
         def check_no_extra_letters():
-            return True
+            l1 = sorted(self.letters)
+            l2 = sorted(waffle.letters)
+            return l1 == l2
         def check_yellows():
             for i in range(0,21):
                 if self.colors[i] == "y":
@@ -147,7 +148,7 @@ class Waffle:
 
             return True
         return check_no_extra_letters() and check_yellows() and check_greens() and check_whites()
-
+    
 # letters_string = "wrcheseiarbosierhimte"
 # colors_string = "gywygwywywgwyygygwywg"
 
